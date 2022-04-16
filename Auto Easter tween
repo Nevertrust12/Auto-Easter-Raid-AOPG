@@ -1,0 +1,30 @@
+repeat wait() until game:IsLoaded() and game.Players and game.Players.LocalPlayer and game.Players.LocalPlayer.Character
+local x = game.PlaceId
+local CFrameEnd = CFrame.new(-3773.99512, -44.021431, 603.886963, 0.339257985, -5.73502916e-08, -0.940693378, 3.29409815e-08, 1, -4.90859193e-08, 0.940693378, -1.43345718e-08, 0.339257985)
+local Time = 2
+local tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), { CFrame = CFrameEnd })
+
+if x == 8396586868 then
+    function autoHaki()
+        spawn(function()
+            while true do
+                wait()
+                local args = {
+                    [1] = "Fighting Style",
+                    [2] = "T",
+                    [3] = CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0),
+                    [4] = workspace.Map.Islands.Marineford.Model.Marineford:FindFirstChild("Marineford platform")
+                        :FindFirstChild("Marineford platform").MeshPart,
+                    [5] = 5
+                }
+                game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
+            end
+        end)
+    end
+
+    autoHaki()
+    tween:Play()
+    tween.Completed:Wait()
+else
+    loadstring(game:HttpGet("https://rawscripts.net/raw/loader_1038"))()
+end
